@@ -67,8 +67,6 @@
 					$output .= $broadcast->toJson();
 				}
 
-				$post_thumbnail_id = get_post_thumbnail_id(get_the_ID());
-
 				if( !empty(get_post_thumbnail_id(get_the_ID())) && !empty(get_the_post_thumbnail_url( get_the_ID(), "large" ))){
 					$video->thumbnailUrl($image);
 				}

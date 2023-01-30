@@ -1,7 +1,7 @@
 <?php 
     /*
     Plugin Name: Rubik Video in Post
-    Version: 1.6
+    Version: 1.7
     Description: Permette di taggare i video presenti all'interno dei post
     Author: Matteo Morreale
     Author URI: https://madeit.srl
@@ -69,11 +69,8 @@
 
 				$post_thumbnail_id = get_post_thumbnail_id(get_the_ID());
 
-				if(!empty($post_thumbnail_id)){
-					$image = wp_get_attachment_image_src($post_thumbnail_id,"large")[0];
-					if(!empty($image)){
-						$video->thumbnailUrl($image);
-					}
+				if( !empty(get_post_thumbnail_id(get_the_ID())) && !empty(get_the_post_thumbnail_url( get_the_ID(), "large" ))){
+					$video->thumbnailUrl($image);
 				}
 
 				$video->uploadDate(get_the_modified_time("Y-m-d\Th:i:s\Z"));
